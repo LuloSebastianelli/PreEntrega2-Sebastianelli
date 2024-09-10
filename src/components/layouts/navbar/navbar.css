@@ -1,0 +1,33 @@
+.container-nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: steelblue;
+  align-items: center;
+  height: 50px;
+  padding: 0 50px;
+}
+
+.container-nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+li {
+  list-style: none;
+}
+
+.container-nav-dark {
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  color: white;
+  align-items: center;
+  height: 50px;
+  padding: 0 50px;
+}
+
+.container-nav-dark ul {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
