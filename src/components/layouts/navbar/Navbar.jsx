@@ -1,22 +1,32 @@
 import { useState } from "react";
-import "./navbar.css";
 import CartWidget from "../../common/cartWidget/CartWidget";
+import "./navbar.css";
+import { categories } from "./categories";
+
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [darkMode, setDarkMode] = useState(true);
-  const toggleTheme = () => {
+  const tooggleMode = () => {
     setDarkMode(!darkMode);
   };
+
   return (
-    <div className={darkMode ? "container-nav-dark" : "container-nav"}>
-      <h2>Marca</h2>
+    <div className={"container-nav"}>
+      {/* logo o el nombre de la empresa  */}
+      <Link to="/">Nombre de Marca</Link>
+      {/* al medio un listado de categorias clickeables */}
       <ul>
-        <li>Todos</li>
-        <li>Aventura</li>
-        <li>Simulacion</li>
+        {categories.map(({ title, path }) => (
+          <Link key={title} to={path}>
+            {title}
+          </Link>
+        ))}
       </ul>
-      <button onClick={toggleTheme}>Cambiar Theme</button>
-      <CartWidget />
+
+      <Link to="/cart">
+        <CartWidget />
+      </Link>
     </div>
   );
 };
