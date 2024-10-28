@@ -1,6 +1,5 @@
 export const products = [
   {
-    id: "1",
     title: "Hollow Knight",
     price: 12,
     description: "Juego de aventuras y plataformas oscuro",
@@ -10,7 +9,6 @@ export const products = [
     category: "plataformas",
   },
   {
-    id: "2",
     title: "Celeste",
     price: 8,
     description: "Juego de aventura y plafaformas alegre",
@@ -20,7 +18,6 @@ export const products = [
     category: "plataformas",
   },
   {
-    id: "3",
     title: "Far Cry 6",
     price: 60,
     description: "Juego de accion donde tienes que liberar una isla",
@@ -30,7 +27,6 @@ export const products = [
     category: "accion",
   },
   {
-    id: "4",
     title: "A Way Out",
     price: 12432,
     description: "Juego cooperativo donde tienes que escapar de la carcel",
