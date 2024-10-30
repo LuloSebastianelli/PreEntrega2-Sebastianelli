@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import Swal from "sweetalert2";
 
 export const CartContext = createContext();
 
@@ -32,7 +33,27 @@ export const CartContextProvider = ({ children }) => {
 
   const deleteProductById = (id) => {
     let arrayFiltrado = cart.filter((product) => product.id !== id);
-    setCart(arrayFiltrado);
+    Swal.fire({
+      title: "Seguro que quieres eliminar el producto?",
+      showDenyButton: true,
+      confirmButtonText: "Si, eliminar",
+      denyButtonText: `No, Volver atras`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setCart(arrayFiltrado);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Se elimino el producto",
+        });
+      } else if (result.isDenied) {
+        Swal.fire({
+          position: "center",
+          icon: "info",
+          title: "No se elimino el producto",
+        });
+      }
+    });
   };
 
   const getTotalAmount = () => {

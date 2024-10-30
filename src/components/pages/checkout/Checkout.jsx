@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import { CartContext } from "../../../context/CartContext";
 import { db } from "../../../../config-firebase";
 import { collection, addDoc, updateDoc, doc } from "firebase/firestore";
+import { Button, Grid2, TextField } from "@mui/material";
+import "./checkout.css";
 
 const Checkout = () => {
   const [user, setUser] = useState({
@@ -59,30 +61,45 @@ const Checkout = () => {
       {orderId ? (
         <h1>Gracias por tu compra, el numero de orden es: {orderId}</h1>
       ) : (
-        <form onSubmit={handleSumbit}>
-          <input
-            type="text"
-            placeholder="name"
-            onChange={handleChange}
-            name="name"
-          />
-          <input
-            type="number"
-            placeholder="telefono"
-            onChange={handleChange}
-            name="phone"
-          />
-          <input
-            type="text"
-            placeholder="email"
-            onChange={handleChange}
-            name="email"
-          />
-          <button>Comprar</button>
-        </form>
+        <Grid2 container direction="column">
+          <form onSubmit={handleSumbit} className="formulario">
+            <Grid2>
+              <TextField
+                type="text"
+                name="name"
+                onChange={handleChange}
+                label="Nombre"
+                variant="outlined"
+              />
+            </Grid2>
+            <Grid2>
+              <TextField
+                type="number"
+                name="phone"
+                onChange={handleChange}
+                label="Telefono"
+                variant="outlined"
+              />
+            </Grid2>
+            <Grid2>
+              <TextField
+                type="email"
+                name="email"
+                onChange={handleChange}
+                label="Email"
+                variant="outlined"
+              />
+            </Grid2>
+            <Button type="submit" variant="contained">
+              Comprar
+            </Button>
+          </form>
+        </Grid2>
       )}
     </div>
   );
 };
 
 export default Checkout;
+
+// name phone email
